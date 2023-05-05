@@ -10,7 +10,7 @@ namespace Bakery.Models
       Amount = order;
     }
 
-    public override void CreateMenuItems()
+    public override void TakeOrder(string item, int amount)
     {
 
     }

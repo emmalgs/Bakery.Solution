@@ -5,17 +5,18 @@ namespace Bakery.Models
 {
   public class Bread : Order
   {
-    public Bread(int loafOrder)
+    public Bread()
     {
-      Amount = loafOrder;
+      Items.Add("sourdough", 5);
+      Items.Add("rye", 5);
+      Items.Add("chedder", 5);
+      Items.Add("pierre surprise", 5);
     }
 
-    public override void CreateMenuItems()
+    public override void TakeOrder(string item, int amount)
     {
-      Items.Add("Sourdough", 5);
-      Items.Add("Rye", 5);
-      Items.Add("Chedder Spicy Pepper", 5);
-      Items.Add("Pierre's Surprise", 5);
+      OrderItems.Add(item, amount);
+      Amount += OrderItems[item];
     }
 
     public override void CalculateCost()
