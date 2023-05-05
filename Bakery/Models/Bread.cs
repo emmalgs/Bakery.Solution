@@ -6,6 +6,12 @@ namespace Bakery.Models
     {
       Amount = loafOrder;
     }
+
+    public override void CreateMenuItems()
+    {
+      
+    }
+
     public override void CalculateCost()
     {
       for (int i = 1; i <= Amount; i++)

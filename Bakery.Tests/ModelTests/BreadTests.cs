@@ -1,4 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Bakery.Models;
 
 namespace Bakery.Tests
@@ -33,6 +36,15 @@ namespace Bakery.Tests
       newBread.CalculateCost();
       int result = newBread.Cost;
       Assert.AreEqual(15, result);
+    }
+
+    [TestMethod]
+    public void CreateMenuItems_SetsAndGetsMenuItemsForBreads_Dictionary()
+    {
+      Bread newBread = new Bread(2);
+      newBread.CreateMenuItems();
+      string result = newBread.Items.ElementAt(0).Key;
+      Assert.AreEqual("Sourdough", result);
     }
   }
 }
