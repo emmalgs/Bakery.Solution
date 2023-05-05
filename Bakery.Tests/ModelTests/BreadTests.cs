@@ -7,12 +7,22 @@ namespace Bakery.Tests
   public class BreadTests
   {
     [TestMethod]
-    public void GetLoafOrder_ReturnsLoadOrder_Int()
+    public void GetLoafOrder_ReturnsLoafOrder_Int()
     {
       int loafOrder = 4;
       Bread newBread = new Bread(loafOrder);
       int result = newBread.Loaves;
       Assert.AreEqual(loafOrder, result);
+    }
+    
+    [TestMethod]
+    public void CostMethod_AddsCostToCostField_Int()
+    {
+      int loafOrder = 1;
+      Bread newBread = new Bread(loafOrder);
+      newBread.GetCost();
+      int result = newBread.Cost;
+      Assert.AreEqual(5, result);
     }
   }
 }
