@@ -25,6 +25,13 @@ namespace Bakery.Models
       {
         Cost += Items[orderItems.Key] * orderItems.Value;
       }
+      for (int i = 0; i < Amount; i++)
+      {
+        if (i % 3 == 0)
+        {
+          Cost -= 5;
+        }
+      }
     }
   }
 }

@@ -25,19 +25,19 @@ namespace Bakery.Tests
       newBread.TakeOrder("rye", 1);
       newBread.CalculateCost();
       int result = newBread.Cost;
-      Assert.AreEqual(14, result);
+      Assert.AreEqual(9, result);
     }
 
-    // [TestMethod]
-    // public void CostMethod_CalculatesCostOfLoavesWithDeal_Int()
-    // {
-    //   Bread newBread = new Bread();
-    //   newBread.TakeOrder("sourdough", 3);
-    //   newBread.TakeOrder("rye", 3);
-    //   newBread.CalculateCost();
-    //   int result = newBread.Cost;
-    //   Assert.AreEqual(20, result);
-    // }
+    [TestMethod]
+    public void CostMethod_CalculatesCostOfLoavesWithDeal_Int()
+    {
+      Bread newBread = new Bread();
+      newBread.TakeOrder("sourdough", 3);
+      newBread.TakeOrder("rye", 3);
+      newBread.CalculateCost();
+      int result = newBread.Cost;
+      Assert.AreEqual(20, result);
+    }
 
     [TestMethod]
     public void CreateMenuItems_SetsAndGetsMenuItemsForBreads_Dictionary()
