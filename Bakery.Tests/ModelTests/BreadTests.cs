@@ -25,17 +25,18 @@ namespace Bakery.Tests
       newBread.TakeOrder("rye", 1);
       newBread.CalculateCost();
       int result = newBread.Cost;
-      Assert.AreEqual(10, result);
+      Assert.AreEqual(14, result);
     }
 
     // [TestMethod]
     // public void CostMethod_CalculatesCostOfLoavesWithDeal_Int()
     // {
-    //   int loafOrder = 4;
-    //   Bread newBread = new Bread(loafOrder);
+    //   Bread newBread = new Bread();
+    //   newBread.TakeOrder("sourdough", 3);
+    //   newBread.TakeOrder("rye", 3);
     //   newBread.CalculateCost();
     //   int result = newBread.Cost;
-    //   Assert.AreEqual(15, result);
+    //   Assert.AreEqual(20, result);
     // }
 
     [TestMethod]
@@ -43,7 +44,7 @@ namespace Bakery.Tests
     {
       Bread newBread = new Bread();
       int result = newBread.Items["sourdough"];
-      Assert.AreEqual(5, result);
+      Assert.AreEqual(4, result);
     }
   }
 }

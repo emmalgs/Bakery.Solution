@@ -7,10 +7,10 @@ namespace Bakery.Models
   {
     public Bread()
     {
-      Items.Add("sourdough", 5);
-      Items.Add("rye", 5);
-      Items.Add("chedder", 5);
-      Items.Add("pierre surprise", 5);
+      Items.Add("sourdough", 4);
+      Items.Add("rye", 6);
+      Items.Add("cheddar", 5);
+      Items.Add("pierre surprise", 7);
     }
 
     public override void TakeOrder(string item, int amount)
@@ -21,12 +21,9 @@ namespace Bakery.Models
 
     public override void CalculateCost()
     {
-      for (int i = 1; i <= Amount; i++)
+      foreach (KeyValuePair<string, int> orderItems in OrderItems)
       {
-        if (i % 3 != 0)
-        {
-          Cost += 5;
-        }
+        Cost += Items[orderItems.Key] * orderItems.Value;
       }
     }
   }
