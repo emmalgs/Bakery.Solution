@@ -14,8 +14,16 @@ namespace Bakery.Models
     {
       if (Menu.ContainsKey(item))
         {
-          OrderItems.Add(item, amount);
-          Amount += OrderItems[item];
+          if (!OrderItems.ContainsKey(item))
+          {
+            OrderItems.Add(item, amount);
+            Amount += OrderItems[item];
+          }
+          else
+          {
+            OrderItems[item] += amount;
+            Amount += OrderItems[item];
+          }
         }
     }
     public abstract void CalculateCost();

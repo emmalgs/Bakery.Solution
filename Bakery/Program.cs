@@ -53,16 +53,42 @@ namespace Bakery
       string answer = Console.ReadLine();
       if (answer.ToUpper() == "Y")
       {
-        Console.WriteLine("Please enter the loaf you would like to order:");
-        string orderItem = Console.ReadLine();
-        if (newBread.Menu.ContainsKey(orderItem.ToLower()))
+        AddToBreadBasket(newBread);
+      }
+    }
+
+    static void AddToBreadBasket(Bread bread)
+    {
+      Console.WriteLine("Please enter the loaf you would like to order:");
+      string orderItem = Console.ReadLine();
+      if (bread.Menu.ContainsKey(orderItem.ToLower()))
+      {
+        Console.WriteLine($"Great choice! How many loaves would you like of {orderItem}?");
+        string stringAmount = Console.ReadLine();
+        int orderAmount = int.Parse(stringAmount);
+        bread.TakeOrder(orderItem, orderAmount);
+        DancingChef();
+        Console.WriteLine("Order up!");
+        Console.WriteLine("You're basket currently has:");
+        foreach (KeyValuePair<string, int> items in bread.OrderItems)
         {
-          Console.WriteLine($"Great choice! How many loaves would you like of {orderItem}?");
-          string stringAmount = Console.ReadLine();
-          int orderAmount = int.Parse(stringAmount);
-          newBread.TakeOrder(orderItem, orderAmount);
-          DancingChef();
+          Console.WriteLine($"{items.Value} loaves of {items.Key.ToUpper()}");
         }
+        Console.WriteLine("Would you like to order more bread? (Y/N)");
+        string answer = Console.ReadLine();
+        if (answer.ToUpper() == "Y")
+        {
+          AddToBreadBasket(bread);
+        }
+        else
+        {
+          Console.WriteLine("Okay");
+        }
+      }
+      else
+      {
+        Console.WriteLine("Yikes, fresh out!");
+        AddToBreadBasket(bread);
       }
     }
 
