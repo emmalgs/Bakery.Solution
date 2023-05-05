@@ -5,7 +5,7 @@ namespace Bakery.Models
     public int Pastries { get; set; }
     public Pastry(int order)
     {
-      
+      Pastries = order;
     }
   }
 }
