@@ -10,7 +10,7 @@ namespace Bakery.Models
     }
     public void GetCost()
     {
-      
+      Cost = Pastries * 2;
     }
   }
 }
