@@ -6,7 +6,7 @@ namespace Bakery.Models
     public int Amount { get; set; }
     public Order(int amount)
     {
-
+      Amount = amount;
     }
   }
 }
