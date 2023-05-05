@@ -10,7 +10,14 @@ namespace Bakery.Models
     public Dictionary<string, int> Items { get; set; } = new Dictionary<string, int> {};
     public Dictionary<string, int> OrderItems { get; set; } = new Dictionary<string, int> {};
 
-    public abstract void TakeOrder(string item, int amount);
+    public void TakeOrder(string item, int amount)
+    {
+      if (Items.ContainsKey(item))
+        {
+          OrderItems.Add(item, amount);
+          Amount += OrderItems[item];
+        }
+    }
     public abstract void CalculateCost();
   }
 }
