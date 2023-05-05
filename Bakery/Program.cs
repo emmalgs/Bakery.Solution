@@ -53,49 +53,82 @@ namespace Bakery
       string answer = Console.ReadLine();
       if (answer.ToUpper() == "Y")
       {
-        AddToBreadBasket(newBread);
-      }
-    }
-
-    static void AddToBreadBasket(Bread bread)
-    {
-      Console.WriteLine("Please enter the loaf you would like to order:");
-      string orderItem = Console.ReadLine();
-      if (bread.Menu.ContainsKey(orderItem.ToLower()))
-      {
-        Console.WriteLine($"Great choice! How many loaves would you like of {orderItem}?");
-        string stringAmount = Console.ReadLine();
-        int orderAmount = int.Parse(stringAmount);
-        bread.TakeOrder(orderItem, orderAmount);
-        DancingChef();
-        Console.WriteLine("Order up!");
-        Console.WriteLine("You're basket currently has:");
-        foreach (KeyValuePair<string, int> items in bread.OrderItems)
-        {
-          Console.WriteLine($"{items.Value} loaves of {items.Key.ToUpper()}");
-        }
-        Console.WriteLine("Would you like to order more bread? (Y/N)");
-        string answer = Console.ReadLine();
-        if (answer.ToUpper() == "Y")
-        {
-          AddToBreadBasket(bread);
-        }
-        else
-        {
-          Console.WriteLine("Okay");
-        }
+        AddToBasket(newBread);
       }
       else
       {
-        Console.WriteLine("Yikes, fresh out!");
-        AddToBreadBasket(bread);
+        Console.WriteLine("Sorry, this frenchman doesn't understand");
+        BreadOrPastry();
       }
     }
 
     static void PastryOrder()
     {
-
+      Console.WriteLine("Our bread pastry today is...");
+      Pastry newPastry = new Pastry();
+      foreach (KeyValuePair<string, int> menuItem in newPastry.Menu)
+      {
+        Console.WriteLine($"{menuItem.Key.ToUpper()}: {menuItem.Value.ToString("C2")}");
+      }
+      Console.WriteLine("Would you like to order a pastry? (Y/N)");
+      string answer = Console.ReadLine();
+      if (answer.ToUpper() == "Y")
+      {
+        AddToBasket(newPastry);
+      }
+      else
+      {
+        Console.WriteLine("Sorry, this frenchman doesn't understand");
+        BreadOrPastry();
+      }
     }
+
+    static void AddToBasket(Order order)
+    {
+      Console.WriteLine("Please enter the item you would like to order:");
+      string orderItem = Console.ReadLine();
+      if (order.Menu.ContainsKey(orderItem.ToLower()))
+      {
+        Console.WriteLine($"Great choice! How many would you like of {orderItem}?");
+        string stringAmount = Console.ReadLine();
+        int orderAmount = int.Parse(stringAmount);
+        order.TakeOrder(orderItem, orderAmount);
+        DancingChef();
+        Console.WriteLine("Order up!");
+        Console.WriteLine("You're basket currently has:");
+        foreach (KeyValuePair<string, int> items in order.OrderItems)
+        {
+          Console.WriteLine($"{items.Key.ToUpper()}: x{items.Value}");
+        }
+        Console.WriteLine("Would you like to order more? (Y/N)");
+        string answer = Console.ReadLine();
+        if (answer.ToUpper() == "Y")
+        {
+          AddToBasket(order);
+        }
+        else
+        {
+          SpinBread();
+          Console.WriteLine("Ready to checkout?");
+          ApplyDeals(order);
+        }
+      }
+      else
+      {
+        Console.WriteLine("Yikes, fresh out!");
+        AddToBasket(order);
+      }
+    }
+
+    static void ApplyDeals(Order order)
+    {
+      Console.WriteLine("Great news! Pierre has a special today. It's $5 off on every third loaf of bread, and $2 off every fourth pastry!");
+      Console.WriteLine("Let's calculate your total");
+      ShowSimplePercentage();
+      order.CalculateCost();
+      Console.WriteLine($"You're total is {order.Cost.ToString("C2")}");
+    }
+
     static void SpinBread()
     {
       int counter = 0;
@@ -126,6 +159,17 @@ namespace Bakery
         counter++;
         Thread.Sleep(100);
       }
+    }
+
+    static void ShowSimplePercentage()
+    {
+        for (int i = 0; i <= 100; i++)
+        {
+            Console.Write($"\rProgress: {i}%   ");
+            Thread.Sleep(25);
+        }
+
+        Console.Write("\rChaching!          ");
     }
   }
 }
