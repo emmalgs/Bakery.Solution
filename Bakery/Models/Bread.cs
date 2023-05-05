@@ -1,16 +1,14 @@
 namespace Bakery.Models
 {
-  public class Bread
+  public class Bread : Order
   {
-    public int Loaves { get; set; }
-    public int Cost { get; set; }
     public Bread(int loafOrder)
     {
-      Loaves = loafOrder;
+      Amount = loafOrder;
     }
-    public void GetCost()
+    public override void CalculateCost()
     {
-      for (int i = 1; i <= Loaves; i++)
+      for (int i = 1; i <= Amount; i++)
       {
         if (i % 3 != 0)
         {

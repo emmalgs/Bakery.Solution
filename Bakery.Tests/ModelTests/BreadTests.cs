@@ -11,7 +11,7 @@ namespace Bakery.Tests
     {
       int loafOrder = 4;
       Bread newBread = new Bread(loafOrder);
-      int result = newBread.Loaves;
+      int result = newBread.Amount;
       Assert.AreEqual(loafOrder, result);
     }
     
@@ -20,7 +20,7 @@ namespace Bakery.Tests
     {
       int loafOrder = 1;
       Bread newBread = new Bread(loafOrder);
-      newBread.GetCost();
+      newBread.CalculateCost();
       int result = newBread.Cost;
       Assert.AreEqual(5, result);
     }
@@ -30,7 +30,7 @@ namespace Bakery.Tests
     {
       int loafOrder = 4;
       Bread newBread = new Bread(loafOrder);
-      newBread.GetCost();
+      newBread.CalculateCost();
       int result = newBread.Cost;
       Assert.AreEqual(15, result);
     }
