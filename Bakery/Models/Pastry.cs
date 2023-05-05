@@ -7,16 +7,16 @@ namespace Bakery.Models
   {
     public Pastry()
     {
-      Items.Add("croissant", 3);
-      Items.Add("danish", 2);
-      Items.Add("bucky surprise", 4);
+      Menu.Add("croissant", 3);
+      Menu.Add("danish", 2);
+      Menu.Add("bucky surprise", 4);
     }
 
     public override void CalculateCost()
     {
       foreach (KeyValuePair<string, int> orderItems in OrderItems)
       {
-        Cost += Items[orderItems.Key] * orderItems.Value;
+        Cost += Menu[orderItems.Key] * orderItems.Value;
       }
       for (int i = 1; i <= Amount; i++)
       {

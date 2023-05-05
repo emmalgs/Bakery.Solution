@@ -43,7 +43,7 @@ namespace Bakery.Tests
     public void CreateMenuItems_SetsAndGetsMenuItemsForBreads_Dictionary()
     {
       Bread newBread = new Bread();
-      int result = newBread.Items["sourdough"];
+      int result = newBread.Menu["sourdough"];
       Assert.AreEqual(4, result);
     }
   }

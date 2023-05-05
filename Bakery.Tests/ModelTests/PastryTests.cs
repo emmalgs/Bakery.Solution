@@ -41,7 +41,7 @@ namespace Bakery.Tests
     public void CostMethod_ReturnsZeroIfOrderIsZero_Int()
     {
       Pastry newPastry = new Pastry();
-      int result = newPastry.Items["croissant"];
+      int result = newPastry.Menu["croissant"];
       Assert.AreEqual(3, result);
     }
   }
