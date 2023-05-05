@@ -91,26 +91,34 @@ namespace Bakery
       {
         Console.WriteLine($"Great choice! How many would you like of {orderItem}?");
         string stringAmount = Console.ReadLine();
-        int orderAmount = int.Parse(stringAmount);
-        order.TakeOrder(orderItem, orderAmount);
-        DancingChef();
-        Console.WriteLine("Order up!");
-        Console.WriteLine("You're basket currently has:");
-        foreach (KeyValuePair<string, int> items in order.OrderItems)
+        try
         {
-          Console.WriteLine($"{items.Key.ToUpper()}: x{items.Value}");
+          int orderAmount = int.Parse(stringAmount);
+          order.TakeOrder(orderItem, orderAmount);
+          DancingChef();
+          Console.WriteLine("Order up!");
+          Console.WriteLine("You're basket currently has:");
+          foreach (KeyValuePair<string, int> items in order.OrderItems)
+          {
+            Console.WriteLine($"{items.Key.ToUpper()}: x{items.Value}");
+          }
+          Console.WriteLine("Would you like to order more? (Y/N)");
+          string answer = Console.ReadLine();
+          if (answer.ToUpper() == "Y")
+          {
+            AddToBasket(order);
+          }
+          else
+          {
+            SpinBread();
+            Console.WriteLine("Ready to checkout?");
+            ApplyDeals(order);
+          }
         }
-        Console.WriteLine("Would you like to order more? (Y/N)");
-        string answer = Console.ReadLine();
-        if (answer.ToUpper() == "Y")
+        catch
         {
+          Console.WriteLine("There's a line. Please hurry up and enter a REAL number.");
           AddToBasket(order);
-        }
-        else
-        {
-          SpinBread();
-          Console.WriteLine("Ready to checkout?");
-          ApplyDeals(order);
         }
       }
       else
