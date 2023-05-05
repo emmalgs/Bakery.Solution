@@ -25,5 +25,15 @@ namespace Bakery.Tests
       int result = newPastry.Cost;
       Assert.AreEqual(2, result);
     }
+
+    [TestMethod]
+    public void CostMethod_CalculatesCostOfPastriesWithDeal_Int()
+    {
+      int pastryOrder = 5;
+      Pastry newPastry = new Pastry(pastryOrder);
+      newPastry.GetCost();
+      int result = newPastry.Cost;
+      Assert.AreEqual(8, result);
+    }
   }
 }
