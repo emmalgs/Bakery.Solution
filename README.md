@@ -36,7 +36,7 @@ $ dotnet test
 
 ## Known Bugs
 
-* _The app basically makes you checkout__
+* _The app basically makes you buy whatever you've ordered_
 * _Doesn't take cash...or credit card for that matter..._
 
 ## License
