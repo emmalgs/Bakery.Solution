@@ -10,7 +10,13 @@ namespace Bakery.Models
     }
     public void GetCost()
     {
-      Cost = Loaves * 5;
+      for (int i = 1; i <= Loaves; i++)
+      {
+        if (i % 3 != 0)
+        {
+          Cost += 5;
+        }
+      }
     }
   }
 }
