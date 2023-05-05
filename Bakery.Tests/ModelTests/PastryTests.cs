@@ -35,5 +35,15 @@ namespace Bakery.Tests
       int result = newPastry.Cost;
       Assert.AreEqual(8, result);
     }
+
+    [TestMethod]
+    public void CostMethod_ReturnsZeroIfOrderIsZero_Int()
+    {
+      int pastryOrder = 0;
+      Pastry newPastry = new Pastry(pastryOrder);
+      newPastry.GetCost();
+      int result = newPastry.Cost;
+      Assert.AreEqual(pastryOrder, result);
+    }
   }
 }
