@@ -97,7 +97,7 @@ namespace Bakery
           order.TakeOrder(orderItem, orderAmount);
           DancingChef();
           Console.WriteLine("Order up!");
-          Console.WriteLine("You're basket currently has:");
+          Console.WriteLine("Your basket currently has:");
           foreach (KeyValuePair<string, int> items in order.OrderItems)
           {
             Console.WriteLine($"{items.Key.ToUpper()}: x{items.Value}");
@@ -136,8 +136,8 @@ namespace Bakery
       order.CalculateCost();
       Total.AddOrder(order);
       int total = Total.CalculateTotalCost();
-      Console.WriteLine($"You're total is {total.ToString("C2")}");
-      Console.WriteLine($"You're basket currently has:");
+      Console.WriteLine($"Your total is {total.ToString("C2")}");
+      Console.WriteLine($"Your basket currently has:");
       foreach (Order basket in Total.Orders)
       {
         foreach (KeyValuePair<string, int> items in basket.OrderItems)
