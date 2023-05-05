@@ -12,7 +12,7 @@ namespace Bakery.Tests
     {
       int pastryOrder = 4;
       Pastry newPastry = new Pastry(pastryOrder);
-      int result = newPastry.Pastries;
+      int result = newPastry.Amount;
       Assert.AreEqual(pastryOrder, result);
     }
 
@@ -21,7 +21,7 @@ namespace Bakery.Tests
     {
       int pastryOrder = 1;
       Pastry newPastry = new Pastry(pastryOrder);
-      newPastry.GetCost();
+      newPastry.CalculateCost();
       int result = newPastry.Cost;
       Assert.AreEqual(2, result);
     }
@@ -31,7 +31,7 @@ namespace Bakery.Tests
     {
       int pastryOrder = 5;
       Pastry newPastry = new Pastry(pastryOrder);
-      newPastry.GetCost();
+      newPastry.CalculateCost();
       int result = newPastry.Cost;
       Assert.AreEqual(8, result);
     }
@@ -41,7 +41,7 @@ namespace Bakery.Tests
     {
       int pastryOrder = 0;
       Pastry newPastry = new Pastry(pastryOrder);
-      newPastry.GetCost();
+      newPastry.CalculateCost();
       int result = newPastry.Cost;
       Assert.AreEqual(pastryOrder, result);
     }

@@ -1,16 +1,14 @@
 namespace Bakery.Models
 {
-  public class Pastry
+  public class Pastry : Order
   {
-    public int Pastries { get; set; }
-    public int Cost { get; set; }
     public Pastry(int order)
     {
-      Pastries = order;
+      Amount = order;
     }
-    public void GetCost()
+    public override void CalculateCost()
     {
-      for (int i = 1; i <= Pastries; i++)
+      for (int i = 1; i <= Amount; i++)
       {
         if (i % 4 != 0)
         {
