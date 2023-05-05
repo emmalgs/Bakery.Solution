@@ -44,6 +44,32 @@ namespace Bakery.UserInterfaceModels
     /  `~'____..__= =
          /";
 
+    public static string TheGoodbyeChefRight { get; } = @"
+       .--,--.
+       `.  ,.'
+        |___|
+        :o o:   O    BON VOYAGE!
+       _`~^~'_  |   
+     /'   ^   `\=)
+   .'  _______ '~|
+   `(<=|     |= /'
+       |     |
+       |_____|
+~~~~~~~ ===== ~~~~~~~~";
+
+    public static string TheGoodbyeChefLeft { get; } = @"
+       .--,--.
+       `.  ,.'
+        |___|
+        :- o:     O  BON VOYAGE!
+       _`~^~'_   /   
+     /'   ^   `\=) 
+   .'  _______ '~|
+   `(<=|     |= /'
+       |     |
+       |_____|
+~~~~~~~ ===== ~~~~~~~~";
+
     public static string WelcomeBanner { get; } = @"
  ███████████   ███                                         ██           
 ░░███░░░░░███ ░░░                                         ███           

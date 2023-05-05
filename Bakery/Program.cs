@@ -126,7 +126,28 @@ namespace Bakery
       Console.WriteLine("Let's calculate your total");
       ShowSimplePercentage();
       order.CalculateCost();
-      Console.WriteLine($"You're total is {order.Cost.ToString("C2")}");
+      Total.AddOrder(order);
+      int total = Total.CalculateTotalCost();
+      Console.WriteLine($"You're total is {total.ToString("C2")}");
+      Console.WriteLine($"You're basket currently has:");
+      foreach (Order basket in Total.Orders)
+      {
+        foreach (KeyValuePair<string, int> items in basket.OrderItems)
+        {
+          Console.WriteLine($"{items.Key.ToUpper()} x{items.Value}");
+        }
+      }
+      Console.WriteLine("Keep shopping? (Y/N)");
+      string answer = Console.ReadLine();
+      if (answer.ToUpper() == "Y")
+      {
+        BreadOrPastry();
+      }
+      else
+      {
+        Console.Beep();
+        BonVoyage();
+      }
     }
 
     static void SpinBread()
@@ -170,6 +191,22 @@ namespace Bakery
         }
 
         Console.Write("\rChaching!          ");
+    }
+
+    static void BonVoyage()
+    {
+      int counter = 0;
+      for (int i = 0; i < 12; i++)
+      {
+        Console.Clear();
+        switch (counter % 2)
+        {
+          case 0: Console.WriteLine($"{Art.TheGoodbyeChefRight}"); break;
+          case 1: Console.WriteLine($"{Art.TheGoodbyeChefLeft}"); break;
+        }
+        counter++;
+        Thread.Sleep(100);
+      }
     }
   }
 }
