@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Bakery.Models;
 
 namespace Bakery.Tests
@@ -43,8 +42,8 @@ namespace Bakery.Tests
     {
       Bread newBread = new Bread(2);
       newBread.CreateMenuItems();
-      string result = newBread.Items.ElementAt(0).Key;
-      Assert.AreEqual("Sourdough", result);
+      int result = newBread.Items["Sourdough"];
+      Assert.AreEqual(5, result);
     }
   }
 }

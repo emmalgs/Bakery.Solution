@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Bakery.Models
 {
   public class Bread : Order
@@ -9,7 +12,10 @@ namespace Bakery.Models
 
     public override void CreateMenuItems()
     {
-      
+      Items.Add("Sourdough", 5);
+      Items.Add("Rye", 5);
+      Items.Add("Chedder Spicy Pepper", 5);
+      Items.Add("Pierre's Surprise", 5);
     }
 
     public override void CalculateCost()
