@@ -10,40 +10,39 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetPastryOrder_ReturnsPastryOrder_int()
     {
-      int pastryOrder = 4;
-      Pastry newPastry = new Pastry(pastryOrder);
+      Pastry newPastry = new Pastry();
+      newPastry.TakeOrder("croissant", 3);
       int result = newPastry.Amount;
-      Assert.AreEqual(pastryOrder, result);
+      Assert.AreEqual(3, result);
     }
 
     [TestMethod]
     public void CostMethod_AddsPastryCostToField_Int()
     {
-      int pastryOrder = 1;
-      Pastry newPastry = new Pastry(pastryOrder);
+      Pastry newPastry = new Pastry();
+      newPastry.TakeOrder("croissant", 3);
       newPastry.CalculateCost();
       int result = newPastry.Cost;
-      Assert.AreEqual(2, result);
+      Assert.AreEqual(9, result);
     }
 
     [TestMethod]
     public void CostMethod_CalculatesCostOfPastriesWithDeal_Int()
     {
-      int pastryOrder = 5;
-      Pastry newPastry = new Pastry(pastryOrder);
+      Pastry newPastry = new Pastry();
+      newPastry.TakeOrder("croissant", 3);
+      newPastry.TakeOrder("bucky surprise", 2);
       newPastry.CalculateCost();
       int result = newPastry.Cost;
-      Assert.AreEqual(8, result);
+      Assert.AreEqual(15, result);
     }
 
     [TestMethod]
     public void CostMethod_ReturnsZeroIfOrderIsZero_Int()
     {
-      int pastryOrder = 0;
-      Pastry newPastry = new Pastry(pastryOrder);
-      newPastry.CalculateCost();
-      int result = newPastry.Cost;
-      Assert.AreEqual(pastryOrder, result);
+      Pastry newPastry = new Pastry();
+      int result = newPastry.Items["croissant"];
+      Assert.AreEqual(3, result);
     }
   }
 }
