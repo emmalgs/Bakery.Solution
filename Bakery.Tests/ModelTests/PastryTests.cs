@@ -15,5 +15,15 @@ namespace Bakery.Tests
       int result = newPastry.Pastries;
       Assert.AreEqual(pastryOrder, result);
     }
+
+    [TestMethod]
+    public void CostMethod_AddsPastryCostToField_Int()
+    {
+      int pastryOrder = 1;
+      Pastry newPastry = new Pastry(pastryOrder);
+      newPastry.GetCost();
+      int result = newPastry.Cost;
+      Assert.AreEqual(2, result);
+    }
   }
 }
