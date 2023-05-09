@@ -130,7 +130,7 @@ namespace Bakery
 
     static void ApplyDeals(Order order)
     {
-      Console.WriteLine("Great news! Pierre has a special today. It's $5 off on every third loaf of bread, and $2 off every fourth pastry!");
+      Console.WriteLine("Great news! Pierre has a special today. It's buy 2 loaves, get 1 free or buy 4 pastries and get 1 free!");
       Console.WriteLine("Let's calculate your total");
       ShowSimplePercentage();
       order.CalculateCost();
